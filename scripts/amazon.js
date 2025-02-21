@@ -1,7 +1,19 @@
-import { cart } from "../data/cart.js";
+import { cart, addToCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 
 
+
+function updateCartQuantity(){
+
+  let totalQuantity =0
+
+      cart.forEach((product)=> {
+        totalQuantity += product.quantity
+      })
+
+      document.querySelector('.cart-quantity').innerText = totalQuantity;
+
+}
 
 //generating the html dynamically
 let productHtml = '';
@@ -76,38 +88,10 @@ document.querySelectorAll('.add-to-cart-button').forEach((button)=>{
       setTimeout(()=>{
         added.classList.remove('added-to-cart-visible')
       },5000)
-     
 
-      let matchingItem;
-
-
-      cart.forEach((product)=> {
-        if(productId === product.productId){
-          matchingItem = product
-        }
-      })
-
-      if(matchingItem){
-        matchingItem.quantity +=1
-      } else {
-        cart.push({
-          productId: productId,
-          quantity: val
-        })
-      }
-
-      let totalQuantity =0
-
-      cart.forEach((product)=> {
-        totalQuantity += product.quantity
-      })
-
-    
-
-      document.querySelector('.cart-quantity').innerText = totalQuantity;
-
+      addToCart(productId,val)
+      updateCartQuantity()
       
-    
   })
 })
 
