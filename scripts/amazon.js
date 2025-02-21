@@ -85,7 +85,15 @@ document.querySelectorAll('.add-to-cart-button').forEach((button)=>{
         })
       }
 
-      console.log(cart)
+      let totalQuantity =0
+
+      cart.forEach((product)=> {
+        totalQuantity += product.quantity
+      })
+
+    
+
+      document.querySelector('.cart-quantity').innerText = totalQuantity;
 
       
     
