@@ -1,4 +1,4 @@
-import { cart } from "../data/cart.js";
+import { cart, removeFromCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { convertFromCents } from "./utils/money.js";
 
@@ -103,8 +103,10 @@ document.querySelector('.order-summary').innerHTML = itemHtml;
 
 document.querySelectorAll('.delete-quantity-link').forEach((link)=>{
     link.addEventListener('click', ()=>{
-        console.log('deleted')
         const productId = link.dataset.productId
-        console.log(productId)
+    
+        removeFromCart(productId)
+        console.log(cart)  
+        
     })
 })
