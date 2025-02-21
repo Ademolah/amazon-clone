@@ -1,4 +1,4 @@
-//saving the data
+import { cart } from "../data/cart";
 
 
 //generating the html dynamically
@@ -45,7 +45,7 @@ products.forEach((product)=> {
 
           <div class="product-spacer"></div>
 
-          <div class="added-to-cart">
+          <div class="added-to-cart added-${product.id}">
             <img src="images/icons/checkmark.png">
             Added
           </div>
@@ -68,6 +68,12 @@ document.querySelectorAll('.add-to-cart-button').forEach((button)=>{
 
       let val = Number(document.querySelector(`.quantity-selector-${productId}`).value);
 
+      let added = document.querySelector(`.added-${productId}`)
+      added.classList.add('added-to-cart-visible')
+
+      setTimeout(()=>{
+        added.classList.remove('added-to-cart-visible')
+      },5000)
      
 
       let matchingItem;
