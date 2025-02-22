@@ -1,12 +1,26 @@
-export let cart = [{
-  productId: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
-  quantity: 6
-},
-{
-  productId: "77919bbe-0e56-475b-adde-4f24dfed3a04",
-  quantity: 2
+export let cart = JSON.parse(localStorage.getItem('cart'));
+
+
+
+//if the cart is empty at first, we give this default values
+if(!cart){
+  cart = [{
+      productId: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
+      quantity: 6
+    },
+    {
+      productId: "77919bbe-0e56-475b-adde-4f24dfed3a04",
+      quantity: 2
+    }
+  ];
 }
-];
+
+
+//note: local storage can only save strings
+
+function saveToStorage(){
+  localStorage.setItem('cart', JSON.stringify(cart))
+}
 
 export function addToCart(productId, value){
       let matchingItem;
@@ -27,6 +41,8 @@ export function addToCart(productId, value){
         })
       }
 
+      saveToStorage();
+
 }
 
 export function removeFromCart(productId){
@@ -39,4 +55,6 @@ export function removeFromCart(productId){
     })
 
     cart = newCart;
+
+    saveToStorage();
 }
