@@ -4,15 +4,19 @@ import { convertFromCents } from "./utils/money.js";
 
 
 
-function updateCartQuantity(){
 
-  let totalQuantity =0
+
+export function updateCartQuantity(){
+
+      let totalQuantity =0
 
       cart.forEach((product)=> {
         totalQuantity += product.quantity
       })
 
-      document.querySelector('.cart-quantity').innerText = totalQuantity;
+      document.querySelector('.cart-quantity').innerText = totalQuantity
+
+      return totalQuantity
 
 }
 
@@ -95,4 +99,8 @@ document.querySelectorAll('.add-to-cart-button').forEach((button)=>{
       
   })
 })
+
+let quantity = updateCartQuantity()
+
+document.querySelector('.js-cart-quantity').innerText = quantity
 
