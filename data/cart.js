@@ -41,7 +41,7 @@ export function addToCart(productId, value){
         cart.push({
           productId: productId,
           quantity: value,
-          deliveryOptionsId: '1'
+          deliveryOptionsId: '3' 
         })
       }
 
@@ -59,6 +59,22 @@ export function removeFromCart(productId){
     })
 
     cart = newCart;
+
+    saveToStorage()
+}
+
+export function updateDeliveryOption(productId, deliveryOptionId){
+
+    let matchingProduct;
+
+    cart.forEach((product)=>{
+        if(product.productId === productId){
+            matchingProduct = product;
+        }
+    })
+
+
+    matchingProduct.deliveryOptionsId = deliveryOptionId;
 
     saveToStorage()
 }
