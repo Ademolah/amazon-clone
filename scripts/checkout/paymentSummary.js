@@ -74,4 +74,4 @@ export function renderPaymentSummary(){
     
 }
 
-renderPaymentSummary()
+// renderPaymentSummary()
