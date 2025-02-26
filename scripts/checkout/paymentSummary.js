@@ -2,6 +2,7 @@ import { cart } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js";
 import { convertFromCents } from "../utils/money.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
+import { updateCartQuantity } from "./cartquantity.js";
 
 
 
@@ -30,8 +31,8 @@ export function renderPaymentSummary(){
                     Order Summary
                 </div>
 
-                <div class="payment-summary-row">
-                    <div>Items (3):</div>
+                <div class="payment-summary-row js-item-quantity">
+                    <div>Items (${updateCartQuantity()}):</div>
                     <div class="payment-summary-money">
                     $${convertFromCents( totalProductPrice)}
                     </div>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to exercise 15!</h1>
+    
+</body>
+
+    <script type="module">
+        import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js"
+        import { isWeekend  } from './exer15.js';
+
+
+        const today = dayjs()
+        const Date = today.add(0, 'day')
+
+        const dateFormat = Date.format('dddd')
+        console.log(dateFormat)
+
+        console.log("last one month from today is below...")
+        const lastMonth = today.subtract(1, 'month')
+
+        const monthFormat = lastMonth.format('dddd, MMMM D')
+        console.log(monthFormat)
+
+        console.log('.......................')
+        
+
+        let todayDate = dayjs()
+        console.log(isWeekend(todayDate))
+
+        let todayDate2 = todayDate.add(2, 'days')
+        console.log(isWeekend(todayDate2))
+
+        let todayDate3 = todayDate.add(3, 'days')
+        console.log(isWeekend(todayDate3))
+
+        let todayDate4 = todayDate.add(4, 'days')
+        console.log(isWeekend(todayDate4))
+
+
+    </script>
+</html>
