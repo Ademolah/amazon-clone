@@ -1,5 +1,5 @@
 // import { describe } from "pm2";
-import { convertFromCents } from "../scripts/utils/money.js";
+import { convertFromCents } from "../../scripts/utils/money.js";
 
 describe('test suit: formatCurrency', ()=> {
     it('converts cents into dollars', ()=>{

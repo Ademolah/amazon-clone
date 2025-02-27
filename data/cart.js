@@ -1,21 +1,27 @@
 
-export let cart = JSON.parse(localStorage.getItem('cart'));
+export let cart;
+
+loadFromStorage()
+
+export function loadFromStorage(){
+  cart = JSON.parse(localStorage.getItem('cart'));
 
 
 
 //if the cart is empty at first, we give this default values
 if(!cart){
-  cart = [{
-      productId: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
-      quantity: 1,
-      deliveryOptionsId: '1'
-    },
-    {
-      productId: "77919bbe-0e56-475b-adde-4f24dfed3a04",
-      quantity: 2,
-      deliveryOptionsId: '3'
-    }
-  ];
+    cart = [{
+        productId: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
+        quantity: 1,
+        deliveryOptionsId: '1'
+      },
+      {
+        productId: "77919bbe-0e56-475b-adde-4f24dfed3a04",
+        quantity: 2,
+        deliveryOptionsId: '3'
+      }
+    ];
+  }
 }
 
 
